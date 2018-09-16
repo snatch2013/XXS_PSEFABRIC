@@ -42,8 +42,8 @@ def mult_cfg(cfg_):
         if re.search('juniper', host_[eq_addr]):
             config_ = '<configuration>' + '\n' + cfg_[eq_addr]  + '\n' + '</configuration>'
             version_file(eq_addr, config_,'xml')
-        elif re.search('cisco', host_[eq_addr]):
-            config_ = 'conf t' + '\n' + cfg_[eq_addr] + '\n' + 'exit' + '\n'
+        elif re.search('panorama', host_[eq_addr]):
+            config_ = 'configure' + '\n' + cfg_[eq_addr] + '\n' + 'exit' + '\n'
             # We need to make some reduction in the case of cli configuration. For more informatiom see str_annihilation.py
             config = str_annihilation.str_annihilation(config_)
             version_file(eq_addr, config,'txt')
@@ -52,7 +52,7 @@ def mult_cfg(cfg_):
         if re.search('juniper', host_[rest_hosts]): 
             config = ''
             version_file(rest_hosts, config,'xml')
-        elif re.search('cisco', host_[rest_hosts]):
+        elif re.search('panorama', host_[rest_hosts]):
             config = ''
             version_file(rest_hosts, config,'txt') 
     return "OK"

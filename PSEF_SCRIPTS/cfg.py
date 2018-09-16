@@ -3,6 +3,7 @@
 import mult_cfg
 import ctemplates
 import jtemplates
+import ptemplates
 
 cfg = {}
 def create_configs (cmd_for_host):
